@@ -1,0 +1,4 @@
+project: PROJECT
+target: hoedown_fuzzer
+cmds:
+- cmd: /out/hoedown_fuzzer
