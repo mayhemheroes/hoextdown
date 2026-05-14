@@ -76,6 +76,25 @@ test-issues-65: libhoedown.so
 	$(CXX) -fsanitize=address -g -O0 -o ./test/issues_65.out test/issues_65.cpp -I./src -L./ -Wl,-rpath,./ -lhoedown
 	./test/issues_65.out
 
+ISSUE67_SRC = \
+	src/autolink.c \
+	src/buffer.c \
+	src/document.c \
+	src/escape.c \
+	src/html.c \
+	src/html_blocks.c \
+	src/html5_blocks.c \
+	src/html_smartypants.c \
+	src/stack.c \
+	src/hash.c \
+	src/version.c
+
+test-issues-67: test/issues_67.c $(ISSUE67_SRC)
+	clang -g -O0 -std=c99 -D_DEFAULT_SOURCE -fsanitize=address,undefined \
+		-fno-omit-frame-pointer -Isrc -Wno-static-in-inline \
+		-o ./test/issues_67.out test/issues_67.c $(ISSUE67_SRC)
+	UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1 ./test/issues_67.out
+
 # Housekeeping
 
 clean:
