@@ -1,0 +1,34 @@
+[hoedown/hoedown#236](https://github.com/hoedown/hoedown/issues/236) =
+[kjdev/hoextdown#57](https://github.com/kjdev/hoextdown/issues/57)
+
+1. First item.
+
+1. ```
+   Some code.
+   More code.
+   ```
+
+   There is code here.
+
+1. ```Triple quoted code``` is not fenced code.
+
+1. ```Some ``nested `quotes` code`` may``` require it.
+
+1. Having some
+
+   ```triple quoted code```
+
+   inside your item should work, too.
+
+1. This last item is still in the same list.
+
+End of this list.
+
+1.  ```python
+        print("Hello!")
+      else:
+        print("Good bye.")
+    ```
+
+    The item has one more space than it needs.
+1.  And a last item.
